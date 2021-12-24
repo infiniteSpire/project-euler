@@ -15,6 +15,8 @@ function outputProblem(title, description, problem) {
   console.log(chalk.red('Time spent calcutaling: ', (end - start) / 1000));
 }
 
+// test commit
+
 // outputProblem(
 //   '1. Multiple of 3 and 5:',
 //   'If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.\nFind the sum of all the multiples of 3 or 5 below 1000.',
