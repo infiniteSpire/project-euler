@@ -4,6 +4,8 @@ import evenfibonaccinumbers from './2_evenfibonaccinumbers';
 import largestPrimeFactor from './3_largestPrimeFactor';
 import largestPalindromeProduct from './4_largestPalindromeProduct';
 import smallestMultiple from './5_smallestMultiple';
+import sumSquareDifference from './6_sumSquareDifference';
+import prime10001st from './7_prime10001st';
 
 function outputProblem(title, description, problem) {
   console.log(chalk.yellow.underline(''));
@@ -14,8 +16,6 @@ function outputProblem(title, description, problem) {
   const end = new Date().getTime();
   console.log(chalk.red('Time spent calcutaling: ', (end - start) / 1000));
 }
-
-// test commit
 
 // outputProblem(
 //   '1. Multiple of 3 and 5:',
@@ -46,3 +46,15 @@ function outputProblem(title, description, problem) {
 //   '2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder. What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?',
 //   smallestMultiple
 // );
+
+// outputProblem(
+//   '6. Sum square difference',
+//   'The sum of the squares of the first ten natural numbers is, The square of the sum of the first ten natural numbers is, Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is. Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.',
+//   sumSquareDifference
+// );
+
+outputProblem(
+  '7. 10001st prime',
+  'By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13. What is the 10 001st prime number?',
+  prime10001st
+);
