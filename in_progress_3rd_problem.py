@@ -6,20 +6,19 @@ SMALLEST_PRIME = 2
 def is_factor(n, o):
   return n % o == 0
 
-def is_prime(n):
-  if (n < SMALLEST_PRIME):
-    return False
-
-  for i in range(SMALLEST_PRIME, n):
+def get_largest_prime_factor(n):
+  i = SMALLEST_PRIME
+  # as long as the factor is inferior to the simplified number, try to factorize it further
+  while i < n:
     if is_factor(n, i):
-      return False
-  return True
+      # if n has a factor, n is not a prime
+      n //= i
+    else:
+      # if not divisible by current factor, increment factor and try again
+      i += 1
 
-def get_largest_prime_factor_of(n):
-  largest_prime_factor = SMALLEST_PRIME
-  for i in range(SMALLEST_PRIME, n):
-    if is_factor(n, i) and is_prime(i):
-      largest_prime_factor = i
-  return largest_prime_factor
+  return n
 
-print('Solution:', get_largest_prime_factor_of(13195))
+print('Solution:', get_largest_prime_factor(600851475143))
+
+# Try to understand this better
