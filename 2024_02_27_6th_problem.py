@@ -2,7 +2,7 @@ from math import pow
 from functools import reduce
 
 print('Problem nº6: Sum Square Difference')
-print('Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.')
+print('Description: Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.')
 
 def get_square_of_sums(numbers):
   sum_of_numbers = reduce(lambda a, b: a + b, numbers)
