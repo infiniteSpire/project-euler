@@ -18,3 +18,4 @@ def get_smallest_multiple(start_index, end_index):
   return smallest_multiple_in_common
 
 print('Solution:', get_smallest_multiple(1, 20))
+# Problem was first solved on the 26th of February 2024

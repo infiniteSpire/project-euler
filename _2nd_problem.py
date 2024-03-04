@@ -19,3 +19,4 @@ def get_even_terms_of_fibonacci(limit):
 
 LIMIT = 4000000
 print('Solution:', sum(get_even_terms_of_fibonacci(LIMIT)))
+# Problem was first solved on the 20th of February 2024

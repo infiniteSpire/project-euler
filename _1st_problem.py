@@ -16,3 +16,4 @@ for j in range(len(list_of_multiples)):
   sum_of_multiples = sum_of_multiples + list_of_multiples[j]
 
 print('Solution:', sum_of_multiples)
+# Problem was first solved on the 13th of February 2024

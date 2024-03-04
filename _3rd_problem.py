@@ -20,5 +20,4 @@ def get_largest_prime_factor(n):
   return n
 
 print('Solution:', get_largest_prime_factor(600851475143))
-
-# Try to understand this better
+# Problem was first solved on the 21st of February 2024

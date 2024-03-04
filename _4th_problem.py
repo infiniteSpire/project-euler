@@ -40,3 +40,4 @@ def get_largest_palindrome_of(n):
   return largest_palindrome
 
 print('Solution:', get_largest_palindrome_of(999))
+# Problem was first solved on the 22nd of February 2024

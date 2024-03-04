@@ -39,3 +39,4 @@ def get_largest_product(limit):
   return largest_product
 
 print('Solution:', get_largest_product(13))
+# Problem was first solved on the 1st of March 2024

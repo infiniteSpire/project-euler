@@ -18,3 +18,4 @@ def get_difference(start_number, end_number):
   return get_square_of_sums(numbers) - get_sum_of_squares(numbers)
 
 print('Solution:', get_difference(1, 100))
+# Problem was first solved on the 27th of February 2024
