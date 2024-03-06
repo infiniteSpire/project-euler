@@ -1,5 +1,5 @@
 from time import time
-from _10th_problem import Problem
+from _1_to_10._10th_problem import Problem
 
 class Main(Problem):
   def start_timer(self):
