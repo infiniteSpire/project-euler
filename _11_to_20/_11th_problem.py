@@ -3,7 +3,7 @@ from _11_to_20.helper.arithmetic import get_product
 class Problem:
   @property
   def definition(self):
-    return 'Problem nº11:'
+    return 'Problem nº11: Largest Product in a Grid'
 
   @property
   def matrix(self):
@@ -31,6 +31,10 @@ class Problem:
     ]
   
   @property
+  def matrix_reversed(self):
+    return [self.matrix[i][::-1] for i in range(self.matrix_length)]
+  
+  @property
   def limit(self):
     return 4
   
@@ -40,57 +44,47 @@ class Problem:
 
   @property
   def solved_at(self):
-    return ''
-
-  def get_largest_product_of_horizontal_numbers(self, largest_product):
+    return 'Problem was first solved with the help of AI on the 10th of March 2024'
+  
+  def get_largest_product_of_xy_axises(self, largest_product):
     for first_layer_index in range(self.matrix_length):
       for second_layer_index in range(self.matrix_length):
-        if second_layer_index + self.limit > self.matrix_length:
-          continue
-        adjacent_numbers = self.matrix[first_layer_index][second_layer_index : second_layer_index + self.limit]
-        if get_product(adjacent_numbers) > largest_product:
-          largest_product = get_product(adjacent_numbers)
-    print(largest_product)
+        if second_layer_index + self.limit <= self.matrix_length:
+          adjacent_numbers = self.matrix[first_layer_index][second_layer_index : second_layer_index + self.limit]
+          largest_product = max(largest_product, get_product(adjacent_numbers))
+        if second_layer_index + self.limit <= self.matrix_length:
+          adjacent_numbers = [
+            self.matrix[second_layer_index][first_layer_index],
+            self.matrix[second_layer_index + 1][first_layer_index],
+            self.matrix[second_layer_index + 2][first_layer_index],
+            self.matrix[second_layer_index + 3][first_layer_index]
+          ]
+          largest_product = max(largest_product, get_product(adjacent_numbers))
     return largest_product
 
-  def get_largest_product_of_scan_vertical_numbers(self, largest_product):
+  def get_largest_product_of_z_axis(self, largest_product, matrix):
     for first_layer_index in range(self.matrix_length):
       for second_layer_index in range(self.matrix_length):
-        if second_layer_index + self.limit > len(self.matrix):
-          continue
-        adjacent_numbers = [
-          self.matrix[second_layer_index][first_layer_index],
-          self.matrix[second_layer_index + 1][first_layer_index],
-          self.matrix[second_layer_index + 2][first_layer_index],
-          self.matrix[second_layer_index + 3][first_layer_index]
-        ]
-        if get_product(adjacent_numbers) > largest_product:
-          largest_product = get_product(adjacent_numbers)
-    print(largest_product)
-    return largest_product
-
-  def get_largest_product_of_scan_diagonal_numbers(self, largest_product):
-    for first_layer_index in range(self.matrix_length):
-      for second_layer_index in range(self.matrix_length):
-        adjacent_numbers = [self.matrix[first_layer_index][second_layer_index]]
+        adjacent_numbers = [matrix[first_layer_index][second_layer_index]]
         if first_layer_index + 1 < self.matrix_length and second_layer_index + 1 < self.matrix_length:
-          adjacent_numbers.append(self.matrix[first_layer_index + 1][second_layer_index + 1])
+          adjacent_numbers.append(matrix[first_layer_index + 1][second_layer_index + 1])
           if first_layer_index + 2 < self.matrix_length and second_layer_index + 2 < self.matrix_length:
-            adjacent_numbers.append(self.matrix[first_layer_index + 2][second_layer_index + 2])
+            adjacent_numbers.append(matrix[first_layer_index + 2][second_layer_index + 2])
             if first_layer_index + 3 < self.matrix_length and second_layer_index + 3 < self.matrix_length:
-              adjacent_numbers.append(self.matrix[first_layer_index + 3][second_layer_index + 3])
-        if get_product(adjacent_numbers) > largest_product:
-          largest_product = get_product(adjacent_numbers)
-    print(largest_product)
+              adjacent_numbers.append(matrix[first_layer_index + 3][second_layer_index + 3])
+        largest_product = max(largest_product, get_product(adjacent_numbers))
     return largest_product
 
   def _algorithm(self):
-    return self.get_largest_product_of_scan_diagonal_numbers(
-      self.get_largest_product_of_scan_vertical_numbers(
-        self.get_largest_product_of_horizontal_numbers(0)
+    return (
+      self.get_largest_product_of_z_axis(
+        self.get_largest_product_of_z_axis(
+          self.get_largest_product_of_xy_axises(0),
+          self.matrix
+        ),
+        self.matrix_reversed
       )
     )
 
   def solve(self):
     return self._algorithm()
-
