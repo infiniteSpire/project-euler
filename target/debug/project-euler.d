@@ -1,0 +1,1 @@
+/Users/luke/Github/project-euler/target/debug/project-euler: /Users/luke/Github/project-euler/src/_1_to_10/_1st_problem.rs /Users/luke/Github/project-euler/src/_1_to_10/mod.rs /Users/luke/Github/project-euler/src/main.rs
